@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2>City Searched: {{city_name}}</h2>
+        {% if count %}
+            <h3>Total Data</h3>
+            Active: {{data.active}}<br>
+            Total Confirmed: {{data.confirmed}}<br>
+            Total Deaths: {{data.deceased}}<br>
+            Total Recovered: {{data.recovered}}<br>
+            <br>
+            <h3>Last 24 hours</h3>
+            Confirmed (Last 24 hours): {{data.delta.confirmed}}<br>
+            Recovered (Last 24 hours): {{data.delta.recovered}}<br>
+            Death (Last 24 hours): {{data.delta.deceased}}<br>
+        {% else %}
+            <h3>Not Found</h3>
+        {% endif %}
+    </body>
+</html>
