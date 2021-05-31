@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 def corona(request):
     if request.method=="POST":
-        city_name=request.POST.get("city")
+        city_name=request.POST.get("city").strip()
         url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india"
         headers = {
             'x-rapidapi-host': "corona-virus-world-and-india-data.p.rapidapi.com",

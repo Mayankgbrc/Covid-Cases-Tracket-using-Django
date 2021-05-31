@@ -1,12 +1,68 @@
+
 <html>
     <head>
-        <title></title>
+        <title>Covid Tracker</title>
+          <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <style>
+                body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+form {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  }
+
+#commonSearchTerm {
+  width: 80%;
+  padding: 18px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: #333;
+}
+#searchButton {
+  width: 100px;
+  border-radius: 0;
+  background-color: #ff9800;
+  border: none;
+  padding: 2px;
+  color: white;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+            </style>
     </head>
     <body>
-        <form method="POST" action="/">
-            <input type="text" name="city" required/>
-            <button>Check</button>
-            {% csrf_token %}
-        </form>
+        <div class="container " style="margin-top: 13rem;">
+            <h1 class="center white-text">Covid Case Tracker</h1>
+            <br><br>
+            <form method="POST" action="/">
+                <input type="text" name="city"  id="commonSearchTerm" class="browser-default" required placeholder="Enter City Name, Ex - Kolkata" autocomplete="off"/>
+                <button id="searchButton">Check</button>
+                {% csrf_token %}
+            </form>
+        </div>
     </body>
 </html>

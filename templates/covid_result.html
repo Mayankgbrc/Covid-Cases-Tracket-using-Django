@@ -1,22 +1,98 @@
 <html>
     <head>
-        <title></title>
+        <title>Covid Result</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <style>
+            body {
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+background-size: 400% 400%;
+animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
+}
+
+.border {
+	font-size: 1.6rem;
+	display: grid;
+	place-items: center;
+	min-height: 200px;
+	border: 8px solid;
+	padding: 1rem;
+}
+
+.full {
+	border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+}
+
+</style>
     </head>
     <body>
-        <h2>City Searched: {{city_name}}</h2>
-        {% if count %}
-            <h3>Total Data</h3>
-            Active: {{data.active}}<br>
-            Total Confirmed: {{data.confirmed}}<br>
-            Total Deaths: {{data.deceased}}<br>
-            Total Recovered: {{data.recovered}}<br>
+        <div class="container white" style="margin-top: 5rem;">
+            <div class="full border">
+                
+
+            {% if count %}
+            <h3 class="center">Covid Data</h3>
             <br>
-            <h3>Last 24 hours</h3>
-            Confirmed (Last 24 hours): {{data.delta.confirmed}}<br>
-            Recovered (Last 24 hours): {{data.delta.recovered}}<br>
-            Death (Last 24 hours): {{data.delta.deceased}}<br>
-        {% else %}
-            <h3>Not Found</h3>
-        {% endif %}
+            <div class="row" style="width: 100%;">
+                <div class="col offset-m3 m6 s12">
+                    <table>
+                        <tr>
+                            <th>City Searched</th>
+                            <td>{{city_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Active Cases</th>
+                            <td>{{data.active}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Confirmed Cases</th>
+                            <td>{{data.confirmed}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Recovered</th>
+                            <td>{{data.recovered}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Deaths</th>
+                            <td>{{data.deceased}}</td>
+                        </tr>
+                        <tr>
+                            <th>Confirmed (Last 24 hours)</th>
+                            <td>{{data.delta.confirmed}}</td>
+                        </tr>
+                        <tr>
+                            <th>Recovered (Last 24 hours)</th>
+                            <td>{{data.delta.recovered}}</td>
+                        </tr>
+                        <tr>
+                            <th>Death (Last 24 hours)</th>
+                            <td>{{data.delta.deceased}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            {% else %}
+                <h3>Not Found</h3>
+            {% endif %}
+
+            </div>
+        </div>
     </body>
 </html>
